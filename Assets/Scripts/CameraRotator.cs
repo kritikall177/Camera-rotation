@@ -6,8 +6,7 @@ using DG.Tweening;
 
 public class CameraRotator : MonoBehaviour
 {
-    public GameObject button;
-    private bool _modes = true;
+    public bool IsAuto { get; private set; } = true;
     private const float Duration = 30f;
 
     private Rigidbody _rigidbody;
@@ -16,12 +15,11 @@ public class CameraRotator : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         Rotate360();
-        button.GetComponent<ButtonController>().ClickOnButton += SetModes;
     }
     
     void Update()
     {
-        if (!_modes)
+        if (!IsAuto)
         {
             transform.DOKill();
             var directionForce = new Vector3(0.0f, -Input.GetAxisRaw("Horizontal"), 0.0f);
@@ -29,15 +27,15 @@ public class CameraRotator : MonoBehaviour
         }
     }
 
-    private void SetModes()
+    public void SetModes()
     {
-        switch (_modes)
+        switch (IsAuto)
         {
             case true:
-                _modes = false;
+                IsAuto = false;
                 break;
             case false:
-                _modes = true;
+                IsAuto = true;
                 Rotate360();
                 break;
         }
