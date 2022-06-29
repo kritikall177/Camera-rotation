@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 518650064}
   - component: {fileID: 518650063}
   - component: {fileID: 518650062}
-  - component: {fileID: 518650065}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -407,19 +406,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518650060}
   m_CullTransparentMesh: 1
---- !u!114 &518650065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518650060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eee09e9f797d7545ab37e5019f1ab15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 834072030}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,8 +612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd6c1c0dfa57674fb9c99abfaf1ffda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotator: {fileID: 1586259288}
-  button: {fileID: 518650062}
+  _rotator: {fileID: 1586259288}
+  _rotationModeButton: {fileID: 518650062}
+  _buttonText: {fileID: 834072030}
 --- !u!1 &834072028
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,33 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CameraRotatorUI : MonoBehaviour
 {
-    public CameraRotator rotator;
-    public Button button;
-
-    void Start()
+    [SerializeField] private CameraRotator _rotator;
+    [SerializeField] private Button _rotationModeButton;
+    [SerializeField] private Text _buttonText;
+    
+    private void Start()
     {
-        button.onClick.AddListener(() =>
-        {
-            SetText();
-            rotator.SetModes();
-        });
+        _rotationModeButton.onClick.AddListener(RotationModeButtonOnClick);
+    }
+
+    private void RotationModeButtonOnClick()
+    {
+        SetRotationModeButtonText();
+        _rotator.ChangeMode();
     }
     
-    private void SetText()
+    private void SetRotationModeButtonText()
     {
-        switch (rotator.IsAuto)
+        switch (_rotator.IsAuto)
         {
             case true:
-                button.GetComponent<ButtonText>().text.text = "Ручной";
+                _buttonText.text = "Ручной";
                 break;
             case false:
-                button.GetComponent<ButtonText>().text.text = "Авто";
+                _buttonText.text = "Авто";
                 break;
         }
     }
